@@ -1,30 +1,44 @@
 <template>
   <div class="GpaPage">
     <main-header></main-header>
-    <gpa-table
-      rowInfo='first'
-      :inputed="{type:'person', data:null}">
-    </gpa-table>
+    <div class="page-container">
+      <md-app>
+        <md-app-toolbar class="md-primary">
+          <span class="md-title font-weight-medium font-italic">학점계산기</span>
+        </md-app-toolbar>
+        <md-app-content>
+        <md-table v-model="users" md-card>
+          <md-table-toolbar>
+            <h1 class="md-title">정보를 입력하시면 학점을 계산해드립니다!</h1>
+          </md-table-toolbar>
+        </md-table>
+          <gpa-table
+            rowInfo='first'
+            :inputed="{type:'person', data:null}">
+          </gpa-table>
 
-    <div v-for="(gradesInfo, indexnum) in grades">
-      <gpa-table
-        @delit="delit"
-        :index="indexnum+1"
-        :inputed="{type:'person', data: gradesInfo }"></gpa-table>
+           <div v-for="(gradesInfo, indexnum) in grades">
+            <gpa-table
+              @delit="delit"
+              :index="indexnum+1"
+              :inputed="{type:'person', data: gradesInfo }"></gpa-table>
+          </div>
+
+          <gpa-table
+            rowInfo='last'
+            :index='grades.length+1'
+            :inputed="{type:'person',data:null}"
+            @addit="addit"
+          ></gpa-table>
+          <br>
+          <div class="btn__cal">
+          <md-button type="button" 
+            @click="calcul">계산!</md-button>
+          </div>
+            당신의 학점은~~~~! : {{ Sum }}
+        </md-app-content>
+      </md-app>
     </div>
-
-    <gpa-table
-      rowInfo='last'
-      :index='grades.length+1'
-      :inputed="{type:'person',data:null}"
-      @addit="addit"
-    ></gpa-table>
-
-    <input type="button" value="계산!"
-      @click="calcul">
-
-      당신의 학점은~~~~! : {{ Sum }}
-
   </div>
 </template>
 
@@ -42,23 +56,7 @@
       return{
         selected:[],
         Sum:0,
-        grades:[
-          {
-            classname: '수학',
-            classgrade: 4,
-            classscore: 'F'
-          },
-          {
-            classname: 'C언어',
-            classgrade: 3,
-            classscore: 'A+'
-          },
-          {
-            classname:'컴개이',
-            classgrade:3,
-            classscore:'A+'
-          }
-        ]
+        grades:[]
       }
     },
     methods:{
@@ -105,5 +103,9 @@
 </script>
 
 <style>
-
+  .btn__cal{
+    background-color: blue;
+    color: white;
+    float:left;
+  }
 </style>

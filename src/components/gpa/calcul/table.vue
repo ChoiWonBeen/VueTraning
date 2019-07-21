@@ -1,7 +1,6 @@
 <template>
   <div class="table">
     <div class="allOfTable">
-
       <div
         class="table__element class__name"
         :class="{'first__row':rowInfo=='first'}"
@@ -15,7 +14,7 @@
       </div>
       <div class="table__element class__name last"
         v-else>
-        <input type="text" v-model="classname">
+        <input type="text" v-model="classname" placeholder="C언어">
       </div>
 
       <div
@@ -30,7 +29,7 @@
       </div>
       <div class="table__element class__grade"
         v-else>
-        <input type="Number" v-model="classgrade">
+        <input type="Number" v-model="classgrade" placeholder="3">
       </div>
 
       <div
@@ -45,21 +44,22 @@
       </div>
       <div class="table__element class__Score"
         v-else>
-        <input type="text" v-model="classscore">
+        <input type="text" v-model="classscore" placeholder="A+">
       </div>
 
       <div
         class="btn__del"
         v-if="rowInfo=='default'">
-        <button type="button" name="del"
+        <md-button class="del" type="button" name="del"
         @click="del">
-        DEL</button>
+        DEL</md-button>
       </div>
       <div class="btn__add"
         v-if="rowInfo=='last'">
-        <button type="button" name="add"
+        <md-button type="button" class="add" name="add"
           @click="add">
-          ADD</button>
+          ADD
+        </md-button>
 
       </div>
     </div>
@@ -124,16 +124,39 @@
     border: 1px gray solid;
     margin-bottom: -1px;
     margin-top:-1px;
-    width: 100px;
-    height: auto;
+    width: 200px;
+    height: 45px;
+    font-weight: normal;
+    font-size: 30px;
+    text-align: center;
+    padding-top: 10px;
+  }
+  .first__row{
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    padding-top: 10px;
   }
   .table__element input {
-    width:100px;
+    width:200px;
     margin:0px;
     padding:0px;
     border:0px;
+    height: 25px;
+    text-align: center;
   }
   .btn__del, .btn__add {
     float: left;
+  }
+  .table{
+    height: 45px;
+  }
+  .del{
+    background-color:hsl(0, 88%, 51%);
+    color:white;
+  }
+  .add{
+    background-color: #22b122;
+    color: white
   }
 </style>

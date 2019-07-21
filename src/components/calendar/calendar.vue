@@ -1,15 +1,23 @@
 <template>
   <div class="cal">
     <main-header></main-header>
-    <vue-cal
-      xsmall
-      hide-view-selector
-      click-to-navigate
-      :time="false"
-      default-view="month"
-      class="vuecal--blue-theme"
-      :events="events">
-    </vue-cal>
+    <div class="page-container">
+      <md-app>
+        <md-app-toolbar class="md-primary">
+          <span class="md-title font-weight-medium font-italic">달력</span>
+        </md-app-toolbar>
+        <md-app-content>
+          <vue-cal
+            hide-view-selector
+            click-to-navigate
+            :time="false"
+            default-view="month"
+            class="vuecal--blue-theme"
+            :events="events">
+          </vue-cal>
+        </md-app-content>
+      </md-app>
+    </div>
   </div>
 </template>
 
@@ -66,9 +74,7 @@
 </script>
 
 <style scoped>
-  .cal {
-    background-color: #fefefe;
+  .vuecal {
     height: 500px;
-    width: 500px;
   }
 </style>
