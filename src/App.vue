@@ -10,9 +10,9 @@
   }
 </script>
 
-<style>
+<style scoped>
   #app {
-    background-color: #eeeeee;
+    background-color:;
   }
   body {
     margin: 0px
