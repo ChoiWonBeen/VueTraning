@@ -7,6 +7,11 @@
           <span class="md-title font-weight-medium font-italic">달력</span>
         </md-app-toolbar>
         <md-app-content>
+          <md-table v-model="users" md-card>
+            <md-table-toolbar>
+             <h1 class="md-title">제 생일을 표기해둔 그냥 달력입니다. 7월 30일!</h1>
+           </md-table-toolbar>
+          </md-table>
           <vue-cal
             hide-view-selector
             click-to-navigate

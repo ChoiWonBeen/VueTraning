@@ -35,7 +35,7 @@
           <md-button type="button" 
             @click="calcul">계산!</md-button>
           </div>
-            당신의 학점은~~~~! : {{ Sum }}
+          <span class="md-title sum">당신의 학점은 {{ Sum }}점입니다! </span>
         </md-app-content>
       </md-app>
     </div>
@@ -96,7 +96,7 @@
           if(this.grades[i].classscore == 'D'){ scoreSummary += 1 * Number(this.grades[i].classgrade)}
           if(this.grades[i].classscore == 'F'){ scoreSummary += 0 * Number(this.grades[i].classgrade)}
         }
-        this.Sum = scoreSummary / gradeSummary
+        this.Sum = scoreSummary / gradeSummary;
       }
     }
   }
@@ -107,5 +107,8 @@
     background-color: blue;
     color: white;
     float:left;
+  }
+  .sum{
+    margin-left: 30px;
   }
 </style>
